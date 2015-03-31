@@ -1,7 +1,20 @@
+#Bilik
+###Use your meeting rooms wisely
+No rooms available on your calendar?
+But yet you see many rooms underutilized?
+ 
+With Bilik-Pro you will be able to maximize your meeting rooms usage at a very afforable price.
+
+- Why Android?: Android is currently our of the most reliable and affordable options for implementing this type of systems. It provides access to a broad set of hardware options while providing the necessary support Bilik requires.
+- Why Google?: Most of our customers are already using Google Apps for Work as their main office backend. Because of that, we decided to provide our functionality to this type of users first.
+- Always synced: Our application communicates directly with Google Calendar, synchronizing changes immediately. This means that people operating the tablet and people using the web calendar will always see the same information. No additional servers are required. 
+
+####Visit our website at: www.bilikpro.com
+####Or our Facebook: facebook.com/bilikpro
+
 Before compiling this project be sure to follow the instructions:
 
-Android project:
-----------------
+#Android project:
 
 1) Change the package com.vsc.google.api.services.samples.calendar.android.bilik to something of your own (make up a unique name that has never been used before by anyone)
 
@@ -32,8 +45,7 @@ Android project:
 	3.1 Create a Crashlytics account in www.crashlytics.com
 	3.2 Include the apiKey provided by crashlitics for your account into the AndroidManifest.xml file (property com.crashlytics.ApiKey).
 
-Server:
--------
+# Server:
 
 1) Update “server/cloud/config.js” with the OAut2 token and secret from Google (to enable authentication with Google Accounts):
 
@@ -46,5 +58,20 @@ Server:
 
 	Mailgun.initialize('...', '...');
 
+#License
+
+    BilikPro	
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
 Have fun :)
