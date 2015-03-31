@@ -1,0 +1,41 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#202020</color>
+    <color name="remote_meeting_room_name_color">#66000000</color>
+
+    <color name="meeting_room_background_white">#FFFFFF</color>
+
+	<color name="exceeded_quote_body_bar">#cc1e9422</color>
+    <color name="available_room_top_bar">#cc1e9422</color>
+    <color name="available_room_body_bar">#cc1e9422</color>
+    <color name="available_room_bottom_bar">#cc1e9422</color>
+    <color name="available_room_pressed_button">#6aa84f</color>
+    <color name="available_room_released_button">#0f4a11</color>
+
+    <color name="busy_room_top_bar">#ccd93a32</color>
+    <color name="busy_room_body_bar">#ccd93a32</color>
+    <color name="busy_room_bottom_bar">#ccd93a32</color>
+    <color name="busy_room_pressed_button">#990000</color>
+    <color name="busy_room_released_button">#6d1d19</color>
+
+    <color name="waiting_room_top_bar">#ccd1950a</color>
+    <color name="waiting_room_body_bar">#ccd1950a</color>
+    <color name="waiting_room_bottom_bar">#ccd1950a</color>
+    <color name="waiting_room_pressed_button">#f1c232</color>
+    <color name="waiting_room_released_button">#694b05</color>
+
+    <color name="setup_background_color">#d03177bd</color>
+    <color name="done_pressed_button">#ff2145ff</color>
+    <color name="done_released_button">#ff001bd1</color>
+
+    <color name="report_pressed_button">#ffffff</color>
+    <color name="report_released_button">#ffffff</color>
+
+    <color name="busy_resource_map_color">#ccd93a32</color>
+    <color name="available_resource_map_color">#6aa84f</color>
+    <color name="unplugged_resource_map_color">#270F260F</color>
+    <color name="waiting_resource_map_color">#f1c232</color>
+
+</resources>

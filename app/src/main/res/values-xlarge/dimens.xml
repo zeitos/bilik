@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="top_bar_height">80pt</dimen>
+    <dimen name="bottom_bar_height">120pt</dimen>
+    <dimen name="paddingTop">5pt</dimen>
+    <dimen name="ClockFontSize">60pt</dimen>
+    <dimen name="ClockUnitFontSize">20pt</dimen>
+</resources>

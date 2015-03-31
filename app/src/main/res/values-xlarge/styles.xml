@@ -1,0 +1,85 @@
+<resources>
+
+    <style name="RoomBarTitle">
+        <item name="android:textSize">52sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">Roboto</item>
+    </style>
+
+    <style name="DoneButton">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="setup_title">
+        <item name="android:textSize">75sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="setup_description">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ResourceButton">
+        <item name="android:textSize">37sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ReservationSummaryTitle">
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">45dp</item>
+    </style>
+
+    <style name="DataUnitNumber">
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">60sp</item>
+    </style>
+
+    <style name="DataUnitUnit">
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">23sp</item>
+    </style>
+
+    <style name="TimeTitle">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingBottom">15sp</item>
+    </style>
+
+    <style name="BodyBar">
+        <item name="android:paddingLeft">200sp</item>
+        <item name="android:paddingTop">100sp</item>
+        <item name="android:paddingBottom">100sp</item>
+        <item name="android:paddingRight">200sp</item>
+    </style>
+
+    <style name="OperationButtons">
+        <item name="android:layout_height">38pt</item>
+        <item name="android:layout_width">150pt</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textSize">32dp</item>
+    </style>
+
+    <style name="MainToolbar">
+        <item name="android:layout_height">80dip</item>
+        <item name="android:textSize">35dp</item>
+    </style>
+
+    <style name="RoomBarClock">
+        <item name="dataFontSize">60</item>
+        <item name="unitFontSize">20</item>
+    </style>
+
+</resources>

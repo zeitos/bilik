@@ -1,0 +1,13 @@
+<resources>
+        <string name="title_activity_setup">Setup</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Select a room</string>
+    <string name="action_done">Ready!</string>
+    <string name="action_dismiss">Done</string>
+
+    <string name="error_invalid_resource">We couldn\'t find that room. Can you please double-check?</string>
+    <string name="error_missing_resource">Please select a room</string>
+	<string name="error_missing_area">Please select an area</string>
+    <string name="error_missing_account">Please select an account</string>
+</resources>

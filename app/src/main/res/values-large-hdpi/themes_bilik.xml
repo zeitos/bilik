@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="Bilik" parent="@style/_Bilik"/>
+
+  <style name="_Bilik" parent="Theme.AppCompat.Light">
+
+    <item name="android:editTextStyle">@style/EditTextBilik</item>
+
+    <item name="android:buttonStyle">@style/ButtonBilik</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonBilik</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerBilik</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarBilik</item>
+
+  </style>
+
+</resources>

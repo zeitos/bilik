@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawableLeft="@drawable/message_attention"
+        android:text="Error\nmessage"
+        android:textColor="#ff0000"
+        android:gravity="left|center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textAlignment="gravity"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:background="@drawable/report_button_selector">
+
+</Button>

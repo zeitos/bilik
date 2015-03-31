@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.tresmonos.ui.views.ResourceCardFlipView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/resource_card_front"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/card_background_white"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:padding="16dp" >
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/resource_card_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="@color/remote_meeting_room_name_color"
+                android:layout_height="wrap_content"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/flip_card_icon"
+                android:layout_width="wrap_content"
+                android:textColor="@color/remote_meeting_room_name_color"
+                android:layout_gravity="right|center"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textSize="30sp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/status_layout"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@color/available_room_pressed_button">
+	        <ProgressBar
+		        android:id="@+id/resource_sync_in_progress_view"
+		        style="?android:attr/progressBarStyleLarge"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true" />
+            <com.tresmonos.ui.views.DataUnitView
+                android:id="@+id/remaining_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                custom:dataText="10"
+                custom:unitText="Hs"
+                custom:dataFontSize="@integer/remote_remaining_time_data"
+                custom:unitFontSize="@integer/remote_remaining_time_unit"
+                />
+            <com.tresmonos.ui.views.DataUnitView
+                android:id="@+id/remaining_minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                custom:dataText="59"
+                custom:unitText="Min"
+                custom:dataFontSize="@integer/remote_remaining_time_data"
+                custom:unitFontSize="@integer/remote_remaining_time_unit"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/resource_card_back"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/card_background_white"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:padding="16dp" >
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/resource_card_title_back_text_view"
+                android:layout_width="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="@color/remote_meeting_room_name_color"
+                android:layout_height="wrap_content"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/back_icon"
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/remote_meeting_room_name_color"
+                android:layout_height="wrap_content"
+                android:paddingRight="5sp"
+                android:paddingTop="5sp"
+                android:textSize="30sp"
+                android:text="@string/back_icon"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_height="115dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
+            >
+
+            <Button
+                android:id="@+id/button_view"
+                style="@style/TakeNowButton"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom|center"
+                android:background="@drawable/empty_button_selector"
+                android:gravity="center"
+                android:fontFamily="Roboto" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.tresmonos.ui.views.ResourceCardFlipView>

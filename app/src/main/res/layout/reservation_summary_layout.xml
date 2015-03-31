@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:layout_height="fill_parent">
+        <TextView
+            android:id="@+id/summary_title_1"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="bottom|left"
+            android:gravity="bottom"
+            style="@style/ReservationSummaryTitle"
+            android:text="A really adhoc reservation with a" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:paddingBottom="8sp"
+        android:layout_height="fill_parent">
+        <TextView
+            android:id="@+id/summary_time_1"
+            android:singleLine="true"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:layout_gravity="top|center"
+            android:gravity="left"
+            android:text="time"
+            style="@style/ReservationSummaryTimeRange"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/line_state"
+        android:layout_gravity="bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#FFFFFF" />
+
+</LinearLayout>

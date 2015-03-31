@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">@style/ButtonBar</item>
+        <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>
+    </style>
+
+    <style name="ButtonBar">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+
+    <style name="RoomBarTitle">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">Roboto</item>
+    </style>
+
+	<style name="ExceededQuoteTitle">
+		<item name="android:textSize">35sp</item>
+		<item name="android:textColor">@color/white</item>
+		<item name="android:gravity">center</item>
+		<item name="android:textAlignment">center</item>
+		<item name="android:fontFamily">Roboto</item>
+	</style>
+
+    <style name="AvailableRoomTopBar">
+        <item name="android:background">@color/available_room_top_bar</item>
+    </style>
+    <style name="AvailableRoomBottomBar">
+        <item name="android:background">@color/available_room_bottom_bar</item>
+    </style>
+    <style name="AvailableRoomBodyBar">
+        <item name="android:background">@color/available_room_body_bar</item>
+    </style>
+    <style name="BusyRoomTopBar">
+        <item name="android:background">@color/busy_room_top_bar</item>
+    </style>
+    <style name="BusyRoomBottomBar">
+        <item name="android:background">@color/busy_room_bottom_bar</item>
+    </style>
+    <style name="BusyRoomBodyBar">
+        <item name="android:background">@color/busy_room_body_bar</item>
+    </style>
+    <style name="ButtonBarButton" />
+
+    <style name="DoneButton">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="setup_title">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="setup_description">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ResourceButton">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ReservationSummaryTitle">
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="DataUnitNumber">
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="DataUnitUnit">
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TimeTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingBottom">15sp</item>
+    </style>
+
+    <style name="ReservationSummaryView">
+        <item name="android:paddingBottom">30sp</item>
+    </style>
+
+    <style name="ReservationSummaryTimeRange">
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="MainToolbar">
+        <item name="android:layout_height">80dip</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="BodyBar">
+        <item name="android:paddingLeft">80sp</item>
+        <item name="android:paddingTop">15sp</item>
+        <item name="android:paddingBottom">25sp</item>
+        <item name="android:paddingRight">100sp</item>
+    </style>
+
+    <style name="OperationButtons">
+        <item name="android:layout_height">30pt</item>
+        <item name="android:layout_width">100pt</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="TakeNowButton">
+        <item name="android:layout_height">20pt</item>
+        <item name="android:layout_width">60pt</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="RoomBarClock">
+        <item name="dataFontSize">50</item>
+        <item name="unitFontSize">20</item>
+    </style>
+</resources>

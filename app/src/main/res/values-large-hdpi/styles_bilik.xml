@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="EditTextBilik" parent="android:Widget.EditText">
+	  <item name="android:background">@drawable/bilik_edit_text_holo_light</item>
+	  <item name="android:textColor">#ffffff</item>
+      <item name="android:textColorHint">#ffc0d1ff</item>
+  </style>
+
+  <style name="ButtonBilik" parent="android:Widget.Button">
+	  <item name="android:background">@drawable/bilik_btn_default_holo_light</item>
+	  <item name="android:minHeight">48dip</item>
+	  <item name="android:minWidth">64dip</item>
+	  <item name="android:textColor">#ffffff</item>
+  </style>
+
+  <style name="ImageButtonBilik" parent="android:Widget.ImageButton">
+	  <item name="android:background">@drawable/bilik_btn_default_holo_light</item>
+  </style>
+
+  <style name="SpinnerBilik" parent="android:Widget.Spinner">
+      <item name="android:background">@drawable/bilik_spinner_background_holo_light</item>
+      <item name="android:dropDownSelector">@drawable/bilik_list_selector_holo_light</item>
+      <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+      <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
+  </style>
+
+  <style name="SpinnerItem" parent="@android:style/Widget.TextView.SpinnerItem">
+      <item name="android:background">@android:color/transparent</item>
+  </style>
+
+  <style name="SpinnerItem.DropDownItem" parent="@style/SpinnerItem">
+      <item name="android:background">@color/setup_background_color</item>
+  </style>
+
+  <style name="ProgressBarBilik" parent="android:Widget.ProgressBar.Horizontal">
+	<item name="android:progressDrawable">@drawable/bilik_progress_horizontal_holo_light</item>
+	<item name="android:indeterminateDrawable">@drawable/bilik_progress_indeterminate_horizontal_holo_light</item>
+	<item name="android:minHeight">16dip</item>
+	<item name="android:maxHeight">16dip</item>
+  </style>
+
+</resources>

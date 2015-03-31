@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Bilik": {
+            "applicationId": "ALMNqzN1ByJ0TdyAtbbOyz5tk9IxVi6UMuHUBpTT", 
+            "masterKey": "Qqmu99Up0NK3VVVh7DpLuron3BgMfElRt8lYY6ES"
+        }, 
+        "_default": {
+            "link": "Bilik"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.18"
+    }
+}

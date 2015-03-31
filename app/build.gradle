@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        maven { url 'http://download.crashlytics.com/maven' }
+    }
+
+    dependencies {
+        classpath 'com.crashlytics.tools.gradle:crashlytics-gradle:1.+'
+    }
+}
+apply plugin: 'android'
+apply plugin: 'crashlytics'
+
+repositories {
+    maven { url 'http://download.crashlytics.com/maven' }
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 17
+        versionCode 6
+        versionName "1.1.6"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore/tresmonos.keystore")
+            keyAlias "bilik"
+	        storePassword "tresCabezas398"
+	        keyPassword "tresCabezas398"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+	        minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    androidTestCompile 'junit:junit:4.8.2'
+    compile 'com.google.apis:google-api-services-calendar:v3-rev59-1.17.0-rc' exclude module: 'httpclient'
+    compile 'com.google.api-client:google-api-client-android:1.17.0-rc' exclude module: 'httpclient'
+    compile 'com.google.http-client:google-http-client-gson:1.17.0-rc' exclude module: 'httpclient'
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile 'com.android.support:support-v4:19.0.0'
+    compile 'com.android.support:appcompat-v7:19.+'
+    compile 'joda-time:joda-time:2.3'
+    compile 'com.google.guava:guava:16.0.1'
+    compile 'de.greenrobot:eventbus:2.2.0'
+    compile 'com.google.android.gms:play-services:4.0.30'
+    compile 'com.crashlytics.android:crashlytics:1.+'
+    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
+    compile 'se.emilsjolander:stickylistheaders:2.5.0'
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile 'com.nineoldandroids:library:2.4.0'
+}
