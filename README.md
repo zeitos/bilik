@@ -1,6 +1,6 @@
 #Bilik
 
-![](https://drive.google.com/file/d/0BynBg6dSxFOkNTM5TFpNM2RJYjg/view?usp=sharing)
+![](server/public/img/BilikPic.jpg)
 
 ###Use your meeting rooms wisely
 No rooms available on your calendar?
