@@ -1,4 +1,7 @@
 #Bilik
+
+![](https://drive.google.com/file/d/0BynBg6dSxFOkNTM5TFpNM2RJYjg/view?usp=sharing)
+
 ###Use your meeting rooms wisely
 No rooms available on your calendar?
 But yet you see many rooms underutilized?
