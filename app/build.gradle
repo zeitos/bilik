@@ -29,8 +29,8 @@ android {
         release {
             storeFile file("keystore/tresmonos.keystore")
             keyAlias "bilik"
-	        storePassword "tresCabezas398"
-	        keyPassword "tresCabezas398"
+	        storePassword "..."
+	        keyPassword "..."
         }
     }
 
@@ -39,6 +39,9 @@ android {
             signingConfig signingConfigs.release
 	        minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
     }
 }

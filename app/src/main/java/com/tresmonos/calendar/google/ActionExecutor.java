@@ -43,7 +43,7 @@ public class ActionExecutor {
     private Future<?> future = null;
 
     private static final EventBus eventBus = EventBus.getDefault();
-    private static final String APPLICATION_NAME = "My Project";
+    private static final String APPLICATION_NAME = "bilik";
     private static final HttpTransport transport = AndroidHttp.newCompatibleTransport();
     private static final JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
     private final Context context;
