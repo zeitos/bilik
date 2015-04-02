@@ -6,6 +6,11 @@ angular.module('Bilik', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngStra
                 templateUrl: 'partials/home.html',
                 controller: 'HomeCtrl'
             })
+            .state('team', {
+                url: '/team',
+                templateUrl: 'partials/team.html',
+                controller: 'TeamCtrl'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: 'partials/login.html',

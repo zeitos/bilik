@@ -1,5 +1,15 @@
 angular.module('Bilik')
     .controller('HomeCtrl', function($scope, $auth, $alert, Account) {
+        var errorHandling = function(error) {
+            $auth.logout();
+            $alert({
+                content: error && error.message ? error.message : "A problem has happened. Please try again!",
+                animation: 'fadeZoomFadeDown',
+                type: 'material',
+                duration: 3
+            });
+        };
+
         /**
          * Get user's profile information.
          */
@@ -8,15 +18,7 @@ angular.module('Bilik')
                 .success(function(data) {
                     $scope.user = data;
                 })
-                .error(function(error) {
-                    $auth.logout();
-                    $alert({
-                        content: error && error.message ? error.message : "A problem has happened. Please try again!",
-                        animation: 'fadeZoomFadeDown',
-                        type: 'material',
-                        duration: 3
-                    });
-                });
+                .error(errorHandling);
         };
 
         $scope.getProfile();
@@ -42,6 +44,7 @@ angular.module('Bilik')
                     }), function(value, key) {
                         return {
                             name: key,
+                            isSubscribed: false,
                             devices: _.sortBy(value, function(device) {
                                 return device.resourceName + "-" + device.deviceId;
                             })
@@ -50,17 +53,42 @@ angular.module('Bilik')
                         return area.name;
                     });
                 })
-                .error(function(error) {
-                    $auth.logout();
-                    $location.path("/#/login");
-                    $alert({
-                        content: error && error.message ? error.message : "A problem has happened. Please try again!",
-                        animation: 'fadeZoomFadeDown',
-                        type: 'material',
-                        duration: 3
-                    });
-                });
+                .error(errorHandling);
         };
 
         $scope.getDevicesByArea();
+
+        /**
+         * Get user's subscriptions
+         */
+        $scope.getSubscriptions = function() {
+            Account.getSubscriptions()
+                .success(function (subscriptions) {
+                    $scope.subscriptionsByArea = subscriptions;
+                })
+                .error(errorHandling);
+        }
+
+        $scope.getSubscriptions();
+
+        /**
+         * React to changes in subscriptions
+         * @param area to subscribe/un-subscribe
+         */
+        $scope.toggleSubscription = function(area) {
+            Account.updateSubscription(area.name, !$scope.isSubscribed(area))
+                .success(function (subscriptions) {
+                    $scope.subscriptionsByArea = subscriptions;
+                })
+                .error(errorHandling);
+        }
+
+        /**
+         * Determines if a given area is subscribed
+         * @param area
+         * @returns boolean
+         */
+        $scope.isSubscribed = function(area) {
+            return _.has($scope.subscriptionsByArea, area.name) && $scope.subscriptionsByArea[area.name].isSubscribed;
+        }
     });

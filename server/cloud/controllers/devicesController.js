@@ -12,13 +12,29 @@ var common = require('cloud/common.js');
  * @param visitor Visitor that will be notified of each device.
  * @return a promise. By the time 'success' is called the visit will be completed.
  */
-exports.visitDevices = function(filterByAccountName, visitor) {
+exports.visitDevices = function(filterByAccount, visitor) {
+	var promise;
 	var deviceQuery = new Parse.Query(Devices);
-	if (filterByAccountName) {
-		deviceQuery.equalTo("accountName", filterByAccountName);
-	}
 	deviceQuery.descending("registrationTime");
-	return deviceQuery.find().then(function(devices) {
+
+	if (filterByAccount) {
+		var accountQuery = new Parse.Query(Account);
+		accountQuery.equalTo("delegateAccounts", filterByAccount.get("email"));
+		promise = accountQuery.find().then(function(accounts) {
+			var accountNames = _.map(accounts, function(account) {
+				return account.get("email");
+			});
+			accountNames = accountNames || [];
+			accountNames.push(filterByAccount.get("email"));
+			deviceQuery.containedIn("accountName", accountNames);
+			console.log("Limiting query to the following emails: " + JSON.stringify(accountNames));
+			return deviceQuery.find();
+		});
+	} else {
+		promise = device.find();
+	}
+
+	return promise.then(function(devices) {
 		var promises = [];
 		_.each(devices, function(device) {
 			var resourceQuery = new Parse.Query(Resources);
@@ -43,7 +59,7 @@ exports.visitDevices = function(filterByAccountName, visitor) {
 exports.list = function(req, res) {
 	authController.ensureAuthenticated(req, res, function(req, res) {
 		var resultDeviceList = [];
-		exports.visitDevices(req.account.get("email"), function(device, resource, area) {
+		exports.visitDevices(req.account, function(device, resource, area) {
 			var areaName = area ? area.get("name") : "Unknown";
 			resultDeviceList.push({
 				resourceName: device.get("resourceName"),

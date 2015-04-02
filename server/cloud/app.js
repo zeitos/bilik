@@ -6,6 +6,8 @@ var common = require('cloud/common');
 // Controllers
 var authController = require('cloud/controllers/authController.js');
 var devicesController = require('cloud/controllers/devicesController.js');
+var areasController = require('cloud/controllers/areasController.js');
+var delegatesController = require('cloud/controllers/delegatesController.js');
 
 // Global app configuration section
 app.set('views', 'cloud/views');  
@@ -37,4 +39,9 @@ app.locals.statusBgColor = function(device) {
 app.post('/auth/google', authController.authenticateGoogle);
 app.get('/api/me', authController.me);
 app.get('/api/devices', devicesController.list);
+app.get('/api/subscriptions', areasController.subscriptions);
+app.post('/api/updateSubscription', areasController.updateSubscription);
+app.get('/api/delegates', delegatesController.list);
+app.post('/api/inviteDelegate', delegatesController.invite);
+app.post('/api/removeDelegate', delegatesController.remove);
 app.listen();

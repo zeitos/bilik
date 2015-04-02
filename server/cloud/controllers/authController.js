@@ -79,7 +79,7 @@ exports.authenticateGoogle = function(req, res) {
 					var user = httpResponse.data;
 					var Account = Parse.Object.extend("Account");
 					var query = new Parse.Query(Account);
-					query.equalTo("googleId", user.sub);
+					query.equalTo("email", user.email);
 					query.first().then(function(account) {
 						// Step 4. Update the information and return the token
 						if (!account) {

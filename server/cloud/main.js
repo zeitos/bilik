@@ -11,7 +11,7 @@ var Resources = Parse.Object.extend('Resources');
 var Account = Parse.Object.extend('Account');
 var Products = Parse.Object.extend('Products');
 
-Mailgun.initialize('....', '....');
+Mailgun.initialize('sandboxe91bde297aa348faa31bc9fb96e8fb86.mailgun.org', 'key-e1cf61fae14eaa06f8b37ece00c072a9');
 
 /**
  * Returns a promise that updates the status of all devices and resources, including
@@ -78,42 +78,54 @@ Parse.Cloud.job("statusCheck", function(request, status) {
  * Sends an email with the state of each device for each of the subscribed accounts
  */
 Parse.Cloud.job("sendEmails", function(request, status) {
-	var result = "<p>Status of all devices:</p><br/><table style='border-collapse:collapse;' border='1'><tr>" +
-		"<th style='white-space:nowrap;'>Account</th>" +
-		"<th style='white-space:nowrap;'>Area</th>" +
-		"<th style='white-space:nowrap;'>Resource Name</th>" +
-		"<th style='white-space:nowrap;'>Device Id</th>" +
-		"<th style='white-space:nowrap;'>Is Charging</th>" +
-		"<th style='white-space:nowrap;'>Battery Level</th>" +
-		"<th style='white-space:nowrap;'>Current State</th>" +
-		"<th style='white-space:nowrap;'>Last Update</th>" +
-		"</tr>";
-
-	devicesController.visitDevices(null, function (device, resource, area) {
-		var currentStatus = common.calculateStatus(device);
-		var statusBgColor = currentStatus === "okay" ? "#40FF40" :
-			currentStatus === "warning" ? "#FFFF40" : "#FF4040";
-		var statusColor = currentStatus === "okay" ||
-			currentStatus === "warning" ? "#000000" : "#FFFFFF";
-		var areaName = area ? area.get("name") : "Unknown";
-		result += "<tr style='color: " + statusColor + "; background: " + statusBgColor + ";'>" +
-			"<td>" + common.valueFormat(device.get("accountName")) + "</td>" +
-			"<td>" + common.valueFormat(areaName) + "</td>" +
-			"<td>" + common.valueFormat(device.get("resourceName")) + "</td>" +
-			"<td>" + common.valueFormat(device.get("deviceId")) + "</td>" +
-			"<td>" + common.valueFormat(device.get("batteryIsCharging")) + "</td>" +
-			"<td>" + common.valueFormat(device.get("batteryLevel")) + "</td>" +
-			"<td>" + common.valueFormat(resource.get("currentState")) + "</td>" +
-			"<td>" + common.dateFormat(device.get("lastUpdated")) + "</td>" +
-			"</tr>";
-	}).then(function() {
-		result += "</table>";
-		return Mailgun.sendEmail({
-			to: "support@your-company.com",
-			from: "noreply@bilik.com",
-			subject: "Device status report",
-			html: result
-		})
+	var accountQuery = new Parse.Query(Account);
+	accountQuery.exists("subscribedAreaNames");
+	accountQuery.find().then(function(accounts) {
+		var promises = [];
+		_.each(accounts, function(account) {
+			var subscribedAreas = account.get("subscribedAreaNames");
+			var result = "<p>Status of all devices:</p><br/><table style='border-collapse:collapse;' border='1'><tr>" +
+				"<th style='white-space:nowrap;'>Account</th>" +
+				"<th style='white-space:nowrap;'>Area</th>" +
+				"<th style='white-space:nowrap;'>Resource Name</th>" +
+				"<th style='white-space:nowrap;'>Device Id</th>" +
+				"<th style='white-space:nowrap;'>Is Charging</th>" +
+				"<th style='white-space:nowrap;'>Battery Level</th>" +
+				"<th style='white-space:nowrap;'>Current State</th>" +
+				"<th style='white-space:nowrap;'>Last Update</th>" +
+				"</tr>";
+			promises.push(devicesController.visitDevices(account, function (device, resource, area) {
+				// Ignore those areas that we are not subscribed
+				var currentStatus = common.calculateStatus(device);
+				var statusBgColor = currentStatus === "okay" ? "#40FF40" :
+					currentStatus === "warning" ? "#FFFF40" : "#FF4040";
+				var statusColor = currentStatus === "okay" ||
+				currentStatus === "warning" ? "#000000" : "#FFFFFF";
+				var areaName = area ? area.get("name") : "Unknown";
+				console.log("Filtering subscribedAreas: " + JSON.stringify(subscribedAreas) + " (checking: " + areaName + ")");
+				if (_.contains(subscribedAreas, areaName)) {
+					result += "<tr style='color: " + statusColor + "; background: " + statusBgColor + ";'>" +
+					"<td>" + common.valueFormat(device.get("accountName")) + "</td>" +
+					"<td>" + common.valueFormat(areaName) + "</td>" +
+					"<td>" + common.valueFormat(device.get("resourceName")) + "</td>" +
+					"<td>" + common.valueFormat(device.get("deviceId")) + "</td>" +
+					"<td>" + common.valueFormat(device.get("batteryIsCharging")) + "</td>" +
+					"<td>" + common.valueFormat(device.get("batteryLevel")) + "</td>" +
+					"<td>" + common.valueFormat(resource.get("currentState")) + "</td>" +
+					"<td>" + common.dateFormat(device.get("lastUpdated")) + "</td>" +
+					"</tr>";
+				}
+			}).then(function() {
+				result += "</table>";
+				return Mailgun.sendEmail({
+					to: account.get("email"),
+					from: "noreply@bilik.com",
+					subject: "Device status report",
+					html: result
+				})
+			}));
+		});
+		return Parse.Promise.when(promises);
 	}).then(function() {
 		status.success("Check successful.");
 	}, function() {

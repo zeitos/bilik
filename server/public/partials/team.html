@@ -1,0 +1,50 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Define the list of collaborators that will help you maintaining your devices.
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover table-bordered table-condensed" ng-if="delegates.length > 0">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th class="col-lg-1"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="delegate in delegates">
+                <td>{{delegate.name}}</td>
+                <td>{{delegate.email}}</td>
+                <td>{{delegate.role}}</td>
+                <td><input type="button" value="Remove" class="btn btn-primary" ng-click="removeDelegate(delegate)"/></td>
+            </tr>
+            </tbody>
+        </table>
+        <div ng-if="delegates.length == 0" align="center">
+            <div class="well">
+                You don't have any collaborator in your team. Use the box below to invite your team mates.
+            </div>
+        </div>
+        <form class="bs-example bs-example-form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">Invite team members:</span>
+                        <input type="text" class="form-control" placeholder="Email address..." ng-model="email">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="inviteDelegate()">Send</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        </form>
+        <p class="text-danger" ng-if="error">
+            {{error}}
+        </p>
+        <p class="text-success" ng-if="message">
+            {{message}}
+        </p>
+        <h6>Please enter the email address of one of your collaborators and we will send him/her an invitation to join.</h6>
+    </div>
+</div>

@@ -1,21 +1,27 @@
 <div class="panel panel-default">
     <div class="panel-heading">Welcome {{user.fullName}}!</div>
     <div class="panel-body">
-        <div class="row">
-            <div class="col-sm-6">
-                In this section of our web-site you will find information about your registered devices and their status.
-            </div>
-        </div>
+        This administration panel allows you to monitor the status of your tablets. From here you can delegate
+        the task of controlling these devices to people in your organization, and you can also configure which
+        devices you want to receive notifications from.
     </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-body">
-        <p>Here is a list of all your areas, rooms and devices configured</p>
+    <div class="panel-heading">
+        Here is a list of all your areas, rooms and devices configured
     </div>
     <ul class="list-group">
         <li class="list-group-item">
             <div ng-repeat="area in areas">
-                <h4>{{area.name}}</h4>
+                <h4>{{area.name}}
+                    <small>
+                        - Send me updates:
+                        <div class="btn-group btn-group-xs btn-toggle ">
+                            <button class="btn btn-lg" ng-click="toggleSubscription(area)" ng-class="{'btn-default': !isSubscribed(area), 'btn-success active': isSubscribed(area)}">ON</button>
+                            <button class="btn btn-lg" ng-click="toggleSubscription(area)" ng-class="{'btn-default active': !isSubscribed(area), 'btn-default': isSubscribed(area)}">OFF</button>
+                        </div>
+                    </small>
+                </h4>
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table table-hover table-bordered table-condensed">
@@ -40,6 +46,15 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            <div ng-if="areas.length == 0" align="center">
+                <div class="alert alert-warning">
+                    You don't have any devices registered. Maybe you need to get permissions from your administrator?
+                </div>
+                Download our app from:
+                <a href=""><img src="img/googlebutton.png" height="70px" width="230px"/></a>
+                Or download and compile the source code from:
+                <a href=""><img src="img/gitbutton.png" height="70px" width="230px"/></a>
             </div>
         </li>
     </ul>
