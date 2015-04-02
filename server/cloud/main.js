@@ -11,7 +11,7 @@ var Resources = Parse.Object.extend('Resources');
 var Account = Parse.Object.extend('Account');
 var Products = Parse.Object.extend('Products');
 
-Mailgun.initialize('sandboxe91bde297aa348faa31bc9fb96e8fb86.mailgun.org', 'key-e1cf61fae14eaa06f8b37ece00c072a9');
+Mailgun.initialize('...', '...');
 
 /**
  * Returns a promise that updates the status of all devices and resources, including
