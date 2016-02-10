@@ -20,7 +20,7 @@ Before compiling this project be sure to follow the instructions:
 #Android project:
 
 1. Change the package com.vsc.google.api.services.samples.calendar.android.bilik to something of your own (make up a unique name that has never been used before by anyone)
-2. Visit the Google Cloud console flow for the Google Calendar API.
+2. Visit the [Google Cloud console](https://console.developers.google.com/) flow for the Google Calendar API.
 * If necessary, sign in to your Google Account, select or create a project, and agree to the terms of service. Click Continue.
 * For Platform select "Android".
 	* For "Package name" you should use the one created in the step 1), DIFERENT FROM "com.vsc.google.api.services.samples.calendar.android.bilik".
